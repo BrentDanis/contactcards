@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Contact Card</title>
+	<link rel="stylesheet" type="text/css" href="contactcard.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+	<script type="text/javascript">
+		//return false doesn't allow the page to refresh
+		//.submit works in two ways
+		//.serialize preps forms being handled by a computer
+		$(document).ready(function(){
+			// $('form').submit(function(){
+			// 	console.log($(this).serialize())
+			// 	return false
+			// })
+			// $('.btn').click(function(){
+			// 	$('form').submit();
+			// })
+			$('button').click(function(){
+
+
+
+			$(".contact").append(
+				'<div class="contactinfo">' + '<br><br><h2>' + $("#first_name").val() + " "
+				+ $("#last_name").val() + '</h2>' +
+				'<p class="class2">See Description</p>' + '<p class="class1">'+ $
+				("#description").val() + '</p><p class="class1">Click Again!</p>' + '</div>');
+
+			})
+
+			$(".contact").on('click', '.contactinfo', function(){
+				$(this).children().toggle();
+			})
+
+
+	})
+</script>
+</head>
+<body>
+	<div class="header">
+		<p>First Name</p>
+		<p>Last Name</p>
+		<p>Description</p>
+	</div>
+	<h1>Add Contact</h1>
+	<form action="process.php" method="post">
+		First name:<input type="text" name="first_name" id="first_name">
+		Last name:<input type="text" name="last_name" id="last_name">
+		<p class="des">Description:<br><textarea name="" id="description" cols="30" rows="15"></textarea></p>
+
+	</form>
+	<button class="btn">Add User</button>
+
+	<div class="contact">
+		<!-- this is where the dynamic content will go -->
+	</div>
+
+</body>
+</html>
